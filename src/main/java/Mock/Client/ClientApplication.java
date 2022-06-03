@@ -21,14 +21,16 @@ public class ClientApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		client.send("1000,cow");
-		client.send("400,donkey");
-		client.send("10,silver");
-		client.send("60,gold");
+		client.send(1250, "cow");
+		client.send(1555, "donkey");
+		client.send(70,"silver");
+		client.send(60, "gold");
 
 		while(true) {
 			Scanner scanner = new Scanner(System.in);
-			client.send(scanner.nextLine());
+			int reqAmount = scanner.nextInt();
+			String reqCurrency = scanner.nextLine();
+			client.send(reqAmount, reqCurrency);
 		}
 
 
